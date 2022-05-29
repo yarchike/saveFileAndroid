@@ -37,9 +37,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveFile(fileName: String) {
         try {
-            val file =File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileName)
-            Log.d("MyLogS", "${binding.inputET.text}")
-            file.appendText("${binding.inputET.text}\n")
+            val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "/hands")
+            file.mkdir()
+            val fileFinal= File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), "/hands/log.txt")
+            fileFinal.appendText("${binding.inputET.text}\n")
 
         } catch (t: Throwable) {
             Log.d("MyLogS", "${t}")
